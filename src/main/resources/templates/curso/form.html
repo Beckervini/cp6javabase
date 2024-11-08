@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulário de Curso</title>
+</head>
+<body>
+    <h2>Formulário de Curso</h2>
+    <form th:action="@{/admin/curso/cadastrar}" th:object="${curso}" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" th:field="*{nome}" required/><br/>
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" th:field="*{descricao}" required></textarea><br/>
+
+        <button type="submit">Salvar Curso</button>
+    </form>
+</body>
+</html>

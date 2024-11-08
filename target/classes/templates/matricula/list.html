@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Matrículas</title>
+</head>
+<body>
+    <h2>Lista de Matrículas</h2>
+    <table>
+        <tr>
+            <th>Curso</th>
+            <th>Aluno</th>
+            <th>Status</th>
+        </tr>
+        <tr th:each="matricula : ${matriculas}">
+            <td th:text="${matricula.curso.nome}">Nome do Curso</td>
+            <td th:text="${matricula.aluno.nome}">Nome do Aluno</td>
+            <td th:text="${matricula.status}">Status da Matrícula</td>
+        </tr>
+    </table>
+</body>
+</html>

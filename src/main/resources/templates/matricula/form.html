@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulário de Matrícula</title>
+</head>
+<body>
+    <h2>Formulário de Matrícula</h2>
+    <form th:action="@{/matricula/aluno}" method="post">
+        <label for="curso">Selecionar Curso:</label>
+        <select id="curso" name="cursoId" required>
+            <option th:each="curso : ${cursos}" th:value="${curso.id}" th:text="${curso.nome}">Curso</option>
+        </select><br/>
+
+        <button type="submit">Matricular-se</button>
+    </form>
+</body>
+</html>

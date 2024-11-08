@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gerenciar Alunos</title>
+    <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+    <h2>Lista de Alunos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="aluno : ${alunos}">
+                <td th:text="${aluno.id}">1</td>
+                <td th:text="${aluno.nome}">Nome do Aluno</td>
+                <td th:text="${aluno.email}">email@exemplo.com</td>
+                <td>
+                    <a th:href="@{/alunos/edit/{id}(id=${aluno.id})}">Editar</a> |
+                    <a th:href="@{/alunos/delete/{id}(id=${aluno.id})}" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <nav>
+        <ul>
+            <li><a th:href="@{/home}">Página Inicial</a></li>
+            <li><a th:href="@{/alunos/add}">Adicionar Aluno</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
